@@ -15,13 +15,6 @@ import java.util.*
 
 class MainAdapter(private val modelMains: ArrayList<ModelMain>) : RecyclerView.Adapter<ListViewHolder>() {
 
-    //untuk onclick
-    /*private var onItemClickCallback: OnItemClickCallback? = null
-
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback?) {
-        this.onItemClickCallback = onItemClickCallback
-    }*/
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.list_item_main, viewGroup, false)
         return ListViewHolder(view)
@@ -32,7 +25,6 @@ class MainAdapter(private val modelMains: ArrayList<ModelMain>) : RecyclerView.A
         listViewHolder.tvName.text = modelMain.name
         listViewHolder.tvJam.text = modelMain.jam
         listViewHolder.tvAlamat.text = modelMain.alamat
-        //listViewHolder.itemView.setOnClickListener { onItemClickCallback?.onItemClicked(modelMain) }
     }
 
     override fun getItemCount(): Int {
