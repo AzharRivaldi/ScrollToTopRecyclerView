@@ -41,41 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         getData();
     }
-
-    /*private fun getData() {
-        AndroidNetworking.get("https://api.learn2crack.com/android/jsonandroid/")
-            .setPriority(Priority.HIGH)
-            .build()
-            .getAsJSONArray(object : JSONArrayRequestListener {
-                override fun onResponse(response: JSONArray) {
-                    for (i in 0 until response.length()) {
-                        try {
-                            val dataApi = ModelMain()
-                            val jsonObject = response.getJSONObject(i)
-                            dataApi.ver = jsonObject.getString("ver")
-                            dataApi.name = jsonObject.getString("name")
-                            dataApi.api = jsonObject.getString("api")
-                            modelMainList.add(dataApi)
-                        } catch (e: JSONException) {
-                            e.printStackTrace()
-                            Toast.makeText(
-                                this@MainActivity, "Gagal menampilkan data!",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-                    showList()
-                }
-
-                override fun onError(anError: ANError) {
-                    Toast.makeText(
-                        this@MainActivity, "Tidak ada jaringan internet!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            })
-    }*/
-
+    
     private fun getData() {
         AndroidNetworking.get("https://dev.farizdotid.com/api/purwakarta/kuliner")
             .setPriority(Priority.MEDIUM)
@@ -91,14 +57,6 @@ class MainActivity : AppCompatActivity() {
                             dataApi.jam = jsonObject.getString("jam_buka_tutup")
                             dataApi.alamat = jsonObject.getString("alamat")
                             modelMainList.add(dataApi)
-                            /*mainAdapter?.setOnItemClickCallback(object : OnItemClickCallback {
-                                    override fun onItemClicked(modelMain: ModelMain) {
-                                        val moveIntent1 =
-                                            Intent(this@MainActivity, DetailActivity::class.java)
-                                        moveIntent1.putExtra(DetailActivity.ITEM_EXTRA, modelMain)
-                                        startActivity(moveIntent1)
-                                    }
-                                })*/
                         }
                         mainAdapter?.notifyDataSetChanged()
                     } catch (e: JSONException) {
